@@ -1,0 +1,25 @@
+{
+    "name": "GetBtcBalance > Int256",
+    "initiators": [
+      {
+        "type": "runlog",
+        "params": {
+          "address": "0x6F99dbbEA7459174936b5172373f9D8e48cDdb02"
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "type": "httpget"
+      },
+      {
+        "type": "jsonparse"
+      },
+      {
+        "type": "ethint256"
+      },
+      {
+        "type": "ethtx"
+      }
+    ]
+  }
