@@ -1,10 +1,10 @@
 {
-    "name":"GetData > Int256",
+    "name":"GetData",
     "initiators": [
       {
         "type": "runlog",
         "params": {
-          "address": "0x23549f7354fc9Fe4A21E42926053a16B0AE48e26"
+          "address": "0x4FFDE32f5D5692f15D12eC9179211c13ad73a850"
         }
       }
     ],

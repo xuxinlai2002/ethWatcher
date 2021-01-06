@@ -1,9 +1,11 @@
 const DataConsumer = require('../../test/callGetDataWork/contracts/DataConsumer.json');
 const Web3 = require('web3');
 
-//xxl todo
-const ContractAddress = "0xe97f3512521314513eEc91F9BA788B50889e6063";
-const ws = "ws://13.115.138.227:20635";
+
+const ContractAddress = "0x0b51085C773735C9e2310f7F44Bd9A139213785d";
+
+//xxl 切换本地节点
+const ws = "ws://172.17.0.1:8546";
 
 //btc balance
 const watchBtcBalanceChainRequest = (callback) =>{

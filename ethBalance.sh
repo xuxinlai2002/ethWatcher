@@ -5,7 +5,12 @@ echo "watch eth balance from kovon chain"
 cd kovan/callGetDataWatch
 node ethWatchBalance.js
 
-echo "get eth balance from test chain"
+echo "get eth balance from regest chain"
 cd ../../
-cd test/callGetDataWork
+cd regest/callGetDataWork
 node ethRunBalance.js
+
+# echo "get eth balance from test chain"
+# cd ../../
+# cd test/callGetDataWork
+# node ethRunBalance.js
