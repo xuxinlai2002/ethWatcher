@@ -1,39 +1,25 @@
 {
-    "name":"GetData",
+    "name": "DoWork2 > Int256",
     "initiators": [
       {
         "type": "runlog",
         "params": {
-          "address": "0x4FFDE32f5D5692f15D12eC9179211c13ad73a850"
+          "address": "0x63c51ad3dE3DBc52110F1B1AF0a7343b81546bFD"
         }
       }
     ],
     "tasks": [
       {
-        "type": "httpget",
-        "confirmations": null,
-        "params": {
-        }
+        "type": "httpget"
       },
       {
-        "type": "jsonparse",
-        "confirmations": null,
-        "params": {
-        }
+        "type": "jsonparse"
       },
       {
-        "type": "ethint256",
-        "confirmations": null,
-        "params": {
-        }
+        "type": "ethint256"
       },
       {
-        "type": "ethtx",
-        "confirmations": null,
-        "params": {
-        }
+        "type": "ethtx"
       }
-    ],
-    "startAt": null,
-    "endAt": null
+    ]
   }

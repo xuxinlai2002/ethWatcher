@@ -18,12 +18,14 @@ async function main() {
       "6372a99d778147a09f039e56d30f61ba"
     );
 
+    
     const options = {
         to      : transaction._parent._address,
         data    : transaction.encodeABI(),
         gas     : await transaction.estimateGas({from: account.address}),
         gasPrice: await web3Obj.eth.getGasPrice() // or use some predefined value
     };
+
     const signed  = await web3Obj.eth.accounts.signTransaction(options, privateKey);
     const receipt = await web3Obj.eth.sendSignedTransaction(signed.rawTransaction)
     //console.log(receipt["logs"]);

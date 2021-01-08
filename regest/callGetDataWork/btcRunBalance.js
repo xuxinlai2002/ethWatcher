@@ -2,7 +2,7 @@ const RunJSON = require('./contracts/DataConsumer.json');
 const Web3 = require('web3');
 const web3Obj = new Web3('http://127.0.0.1:8545');
 
-const ContractAddress = "0x0b51085C773735C9e2310f7F44Bd9A139213785d";
+const ContractAddress = "0xCf0fE0461c4867283D0c6A36BE947C26b652555B";
 const Run = new web3Obj.eth.Contract(RunJSON.abi, ContractAddress, {
   gasPrice: 1000000000, // 1gwei
   gasLimit: 8000000,
