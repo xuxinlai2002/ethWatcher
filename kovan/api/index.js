@@ -86,9 +86,8 @@ const watchBtcScoreChainRequest = (callback) =>{
 
       provider.disconnect();
      
-      console.log(data);
-
-      const retVal = parseInt(data.returnValues["1"])
+      console.log(data.returnValues);
+      const retVal = parseInt(data.returnValues["0"])
       const retReponse = {
         data:retVal
       }
