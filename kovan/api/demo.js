@@ -1,11 +1,12 @@
 const DataConsumer = require('../../regest/callGetDataWork/contracts/DataConsumer.json');
 const Web3 = require('web3');
 
-const ContractAddress = "0xCf0fE0461c4867283D0c6A36BE947C26b652555B";
+const ContractAddress = "0xFA0217F522217a6E279a792C5F685A52042d6243";
 
 //xxl 切换本地节点
-//const ws = "ws://13.115.138.227:8546";
-const ws = "ws://0.0.0.0:8546";
+const ws = "ws://192.168.1.8:8546";
+//const ws = "ws://0.0.0.0:8546";
+//const ws = "wss://kovan.infura.io/ws/v3/7e31d49d7c8a48f4a4539aff9da768e7";
 
 console.log("watch btc chain balance");
 
@@ -31,10 +32,12 @@ gasLimit: 4000000,
 
 // console.log(dataConsumerContract.events);
 
-dataConsumerContract.events.allEvents({
+dataConsumerContract.events.RequestBtcScoreResult({
 }, function(err, data) {
+
 	console.log(err);
 	console.log(data);
+	console.log(data["Result"][1]);
 	console.log("catch ...");
 
 });

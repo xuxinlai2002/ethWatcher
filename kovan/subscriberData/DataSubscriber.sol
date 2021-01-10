@@ -29,7 +29,6 @@ contract DataSubscriber is ChainlinkClient, Ownable {
     Chainlink.Request memory req = buildChainlinkRequest(stringToBytes32(_jobId), this, this.fulfillBtcBalance.selector);
     req.add("get", "http://47.52.148.190:8089/chain/watch/btcBalance");
     req.add("path", "data");
-    req.addInt("times",1);
     sendChainlinkRequestTo(_oracle, req, ORACLE_PAYMENT);
   }
 
@@ -56,7 +55,6 @@ contract DataSubscriber is ChainlinkClient, Ownable {
     Chainlink.Request memory req = buildChainlinkRequest(stringToBytes32(_jobId), this, this.fulfillBtcTimespan.selector);
     req.add("get", "http://47.52.148.190:8089/chain/watch/btcTimespan");
     req.add("path", "data");
-    req.addInt("times",1);
     sendChainlinkRequestTo(_oracle, req, ORACLE_PAYMENT);
   }
 
@@ -67,6 +65,32 @@ contract DataSubscriber is ChainlinkClient, Ownable {
    
     emit RequestBtcBalanceFulfilled(_requestId, _btcTimespan);
     btcTimespan = _btcTimespan;
+  }
+
+  ///btcScore
+  uint256 public btcScore;
+  event RequestBtcScoreFulfilled(
+    bytes32 indexed requestId,
+    uint256 indexed btcScore
+  );
+
+  function RequestBtcScore(address _oracle, string _jobId)
+    public
+    onlyOwner
+  {
+    Chainlink.Request memory req = buildChainlinkRequest(stringToBytes32(_jobId), this, this.fulfillBtcScore.selector);
+    req.add("get", "http://47.52.148.190:8089/chain/watch/btcScore");
+    req.add("path", "data");
+    sendChainlinkRequestTo(_oracle, req, ORACLE_PAYMENT);
+  }
+
+  function fulfillBtcScore(bytes32 _requestId, uint256 _btcScore)
+    public
+    recordChainlinkFulfillment(_requestId)
+  {
+   
+    emit RequestBtcScoreFulfilled(_requestId, _btcScore);
+    btcScore = _btcScore;
   }
 
   //eth
@@ -84,7 +108,6 @@ contract DataSubscriber is ChainlinkClient, Ownable {
     Chainlink.Request memory req = buildChainlinkRequest(stringToBytes32(_jobId), this, this.fulfillEthBalance.selector);
     req.add("get", "http://47.52.148.190:8089/chain/watch/ethBalance");
     req.add("path", "data");
-    req.addInt("times",1);
     sendChainlinkRequestTo(_oracle, req, ORACLE_PAYMENT);
   }
 
@@ -111,7 +134,6 @@ contract DataSubscriber is ChainlinkClient, Ownable {
     Chainlink.Request memory req = buildChainlinkRequest(stringToBytes32(_jobId), this, this.fulfillEthTimespan.selector);
     req.add("get", "http://47.52.148.190:8089/chain/watch/ethTimespan");
     req.add("path", "data");
-    req.addInt("times",1);
     sendChainlinkRequestTo(_oracle, req, ORACLE_PAYMENT);
   }
 
