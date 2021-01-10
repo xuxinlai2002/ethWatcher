@@ -91,8 +91,7 @@ function getCallMethod(nType){
 }
   
 main().then(() => {
-  
+  console.log("regest OK");
 }).catch((e) => {
-    console.log("error", e);
+  console.log("error", e);
 });
-  

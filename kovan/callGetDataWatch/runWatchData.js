@@ -11,7 +11,7 @@ const jobID = "6372a99d778147a09f039e56d30f61ba";
 
 const Run = new web3Obj.eth.Contract(RunJSON.abi, ContractAddress, {
   gasPrice: 1000000000, // 1gwei
-  gasLimit: 8000000,
+  gasLimit: 8000000
 });
 
 async function main() {
@@ -35,8 +35,8 @@ async function main() {
 
   const signed  = await web3Obj.eth.accounts.signTransaction(options, privateKey);
   const receipt = await web3Obj.eth.sendSignedTransaction(signed.rawTransaction);
+  
   //console.log(receipt["logs"]);
-
   
 };
 
@@ -49,22 +49,19 @@ function getCallMethod(nType){
   if(nType == 0){ 
     transaction = Run.methods.RequestBtcScore(
       oracle,
-      jobID,
-      testBtcAddress
+      jobID
     );
   //RequestBtcBalance 1  
   }else if(nType == 1){
     transaction = Run.methods.RequestBtcBalance(
       oracle,
-      jobID,
-      testBtcAddress
+      jobID
     );
   //RequestBtcTimespan 2    
   }else if(nType == 2){
     transaction = Run.methods.RequestBtcTimespan(
       oracle,
-      jobID,
-      testBtcAddress
+      jobID
     );
   //RequestEthScore 3    
   }else if(nType == 3){
@@ -73,15 +70,13 @@ function getCallMethod(nType){
   }else if(nType == 4){
     transaction = Run.methods.RequestEthBalance(
       oracle,
-      jobID,
-      testEthAddress
+      jobID
     );
   //RequestEthTimespan 5   
   }else if(nType == 5){
     transaction = Run.methods.RequestEthTimespan(
       oracle,
-      jobID,
-      testEthAddress
+      jobID
     );
   }
 
@@ -89,13 +84,9 @@ function getCallMethod(nType){
 
 }
 
-
-  
 main().then(() => {
-  
+  console.log("kovan OK");
 }).catch((e) => {
-    console.log("error", e);
-
-
+    console.log("error", e.message);
 });
   

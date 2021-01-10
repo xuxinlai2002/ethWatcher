@@ -2,7 +2,7 @@ const DataConsumer = require('../../regest/callGetDataWork/contracts/DataConsume
 const Web3 = require('web3');
 
 
-const ContractAddress = "0x0b51085C773735C9e2310f7F44Bd9A139213785d";
+const ContractAddress = "0xFA0217F522217a6E279a792C5F685A52042d6243";
 
 //xxl 切换本地节点
 const ws = "ws://47.52.148.190:8546";
